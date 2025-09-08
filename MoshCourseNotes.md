@@ -7,14 +7,14 @@ Python Full Course For Beginners:
 3- Negative in str array starts from last.
 4- string[0:3] from index 0 to 3
 5- string[:] - copy all
-6- string[1:-1] - Give all by moving in reverse.
+6- string[1:-1] - Start at 1 and stop before the last character
 7- len(string) - Get length
 8- string.Upper() -> We call it method instead of function. As upper() is specific to strings so we call it a method.
 len is function.
 9- string.find(): Find the sub string or char
-string.replace
-"asf" in string -> returns a bool
-string.title() -> return capitalization of each word
+-> string.replace
+-> "asf" in string -> returns a bool
+-> string.title() -> return capitalization of each word
 
 # b: Arthmetic:
 
@@ -35,7 +35,7 @@ range(5,10,2)
 4- list.insert(0, obj), .remove(5), .clear(), .index(val)
 50 in list -> Gives bool
 list.count(), list.sort(), list.reverse(), newcopy = list.copy() -> Produce independent list, not rference each other, list.split(' ')
-5- Tuple: numer = (1, 2, 3)
+5- Tuple: number = (1, 2, 3)
 - Are const so no append etc method
 6- x, y, z = coordinates -> open the tuple
 7- Dict has unique keys.
@@ -48,7 +48,7 @@ cust = {
 ali"
 
 # d: Functions, Exception, Comments:
-1- keyword arg: greet_user(firsName="syed", lastName=").
+1- keyword arg: greet_user(firsName="syed", lastName="").
 Increase readibility.
 We can mix positional and keyword arg but keywords arg should be last.
 2- try, except, finally
@@ -75,13 +75,33 @@ from pathlib import Path
 path = Path("<DirName>") 
 path.exists(), .mkdir, .rmdir, .glob("*") -> Go for all files and dir, provide generatorObjs.
 
-# i: PyPI (Python Package Index):
+# h: PyPI (Python Package Index):
 1- openpyxl -> to work with excel sheets.
 2- pip is used to install/remove packages on pypi.
 3- xl.load_workbook("sheet path")
 
-# h: pep:
+# i: pep:
 1- python enchancment proposal: for best python practices.
 2- 
 
-4:11
+# j: ML:
+1. Numpy -> For multi-dimensional array etc
+2. Pandas -> Data analysis library -> Read and Work with spreasheet
+3. MatPlotLib -> 2 dimensional plotting library
+4. Scikit-learn -> Algos for decision trees, NN etc.
+5. Kaggle.com -> Data Science data
+
+# k: Jupyter Notebook
+1. Shortcuts:
+-> See all hotkeys - h
+-> See info about fun - Shift + Tab
+-> Comment - Ctrl + /
+-> Run Cell without creating new cell - Ctrl + Enter
+
+# l: Django:
+1. pip install django=2.1
+2. djnago-admin startproject pyshop .
+3. manage.py -> Manage server, work with database
+4. python manage.py runserver -> Run server
+
+5:08
