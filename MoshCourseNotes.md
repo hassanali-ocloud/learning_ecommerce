@@ -99,9 +99,20 @@ path.exists(), .mkdir, .rmdir, .glob("*") -> Go for all files and dir, provide g
 -> Run Cell without creating new cell - Ctrl + Enter
 
 # l: Django:
-1. pip install django=2.1
+1. pip install django==2.1
 2. djnago-admin startproject pyshop .
+-> python3 manage.py startapp products
+-> python manage.py makemigrations
+-> python manage.py migrate
+-> python manage.py createsuperuser
 3. manage.py -> Manage server, work with database
 4. python manage.py runserver -> Run server
-
-5:08
+5. Files:
+-> admin.py -> How admin panel will look like
+-> apps.py -> Config of this app
+-> models.py -> Classes and new Type for modeling concepts in this app
+-> tests.py -> Automated Tests.
+-> views.py -> What user see when navigate to certain pages.
+6. View Function: Called by django when user navigate to certain page.`
+7. Migrations -> One cmd for creating migration and one for running migration
+8. In admin, convention is <productName>Admin
