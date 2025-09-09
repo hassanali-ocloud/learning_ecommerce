@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<group>
+    <animal id="1">
+        <name>Lion</name>
+        <category>Mammal</category>
+        <weight>55</weight>
+    </animal>
+    <animal id="2">
+        <name>Eagle</name>
+        <category>Bird</category>
+        <weight>75</weight>
+    </animal>
+    <animal id="3">
+        <name>Cobra</name>
+        <category>Reptile</category>
+        <weight>68</weight>
+    </animal>
+    <animal id="4">
+        <name>Frog</name>
+        <category>Amphibian</category>
+        <weight>60</weight>
+    </animal>
+    <animal id="5">
+        <name>Salmon</name>
+        <category>Fish</category>
+        <weight>82</weight>
+    </animal>
+</group>
