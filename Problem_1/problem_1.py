@@ -43,7 +43,7 @@ def print_total_no_of_incidents(reportLs: list[TrainReport]):
 def print_num_of_incidents_in_jan(reportLs: list[TrainReport]):
     jan_incident_num = 0
     for report in reportLs:
-        date = report.incident_data
+        date = report.incident_date
         strip_date = datetime.strptime(date, '%Y-%m-%d').date()
         if strip_date.month == 1:
             jan_incident_num += 1
@@ -68,17 +68,17 @@ def print_days_hours_for_unknown(reportLs: list[TrainReport]):
     for report in reportLs:
         decfect_id = report.defect_id
         if (decfect_id == "42"):
-            date = report.incident_data
+            date = report.incident_date
             time = report.incident_time
             strip_date = datetime.strptime(date, "%Y-%m-%d").date()
             strip_time = datetime.strptime(f"{time}:00", "%H:%M:%S").time()
-            print(f"Day: {strip_date.day} & Hour: {strip_time.hour}")
+            print(f"Date: {date} & Hour: {strip_time.hour}")
 
 def print_incidents_in_current_month(reportLs: list[TrainReport], today_date: str):
     print(f"Incident Occur on Today's Date: {today_date}")
     today_date = datetime.strptime(today_date, "%Y-%m-%d").date()
     for report in reportLs:
-        incident_date = report.incident_data
+        incident_date = report.incident_date
         strip_date = datetime.strptime(incident_date, "%Y-%m-%d").date()
         if (today_date.month == strip_date.month):
             print(f"Company Name: {report.company} - Train Num: {report.train_num} - Wagon Num: {report.wagon_num}")
