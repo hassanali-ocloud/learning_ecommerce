@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      console.log("Start");
+
+      for (let i = 1; i <= 5; i++) {
+        setTimeout(() => {
+          console.log(`Callback Queue Task C${i}`);
+        }, 0);
+      }
+
+      for (let j = 1; j <= 2; j++) {
+        requestAnimationFrame(() => {
+          console.log(`Render Queue Task R${j}`);
+        });
+      }
+
+      for (let k = 1; k <= 3; k++) {
+        Promise.resolve().then(() => {
+          console.log(`Microtask M${k}`);
+        });
+      }
+
+      console.log("End");
+    </script>
+  </body>
+</html>
+
+
+<!--
+Why this order?
+
+Start and End run first (synchronous).
+
+Callback queue (C1) runs first (tasks are pulled one by one).
+
+Then the browser decides “time to render” → runs R1 and R2 from the render queue.
+
+Then continues with C2 → C5 on later ticks.
+
+Note: The exact moment when render queue flushes depends on the browser + frame timing, so you might see slightly different interleaving, but the key idea is:
+
+Callback queue tasks run first, one at a time.
+
+Render queue (requestAnimationFrame) only runs between callbacks, right before painting.
+-->
