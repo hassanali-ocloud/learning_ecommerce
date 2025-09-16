@@ -34,13 +34,13 @@ class Engine():
                 return None
             else:
                 index = target_word.find(input_letter)
-                exact_index = target_word.find(input_letter, index + (target_word_count - 1))
+                exact_index = target_word.find(input_letter, index + (guessed_word_count))
                 guessed_word = self.__change_index(guessed_word, exact_index, input_letter)
                 return guessed_word
             
 def main():
     eng = Engine()
     
-    print(eng.perform_check("Hellow", "l", "______"))
+    print(eng.perform_check("Hellow", "o", "_e___w"))
 
 main()
