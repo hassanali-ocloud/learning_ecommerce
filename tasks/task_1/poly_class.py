@@ -76,17 +76,3 @@ class File(IFileSystem):
 
     def get_size(self):
         return self._size
-        
-
-# Create Interface File System
-## There functions -> add, display, size
-## Override them
-
-# Create Directory class from I
-## Here override add and thus calling it creates a folder
-## Here override display and it will show us the contents of this folder
-## Here override size and it will calculate the size of all files in that folder
-
-# Create File class
-## Here create func, creates a file with its size.
-## Here get size func, will provide us size

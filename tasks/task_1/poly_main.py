@@ -1,25 +1,28 @@
 from poly_class import Directory, File
 
-dir_0 = Directory("dir_0")
+d0 = Directory("d0")
 
-file_1 = File("file_1", 1)
-file_2 = File("file_2", 1)
-dir_0.add(file_1)
-dir_0.add(file_2)
+f0_0 = File("f0_0", 10)
+f0_1 = File("f0_1", 20)
+d0.add(f0_0)
+d0.add(f0_1)
 
-dir_1 = Directory("dir_1")
-file_3 = File("file_3", 1)
-file_4 = File("file_4", 1)
-dir_1.add(file_3)
-dir_1.add(file_4)
+d1 = Directory("d1")
+d0.add(d1)
 
-dir_1_1 = Directory("dir_1_1")
-file_5 = File("file_5", 1)
-dir_1_1.add(file_5)
-dir_1.add(dir_1_1)
+d2 = Directory("d2")
+f2_0 = File("f2_0", 99)
+f2_1 = File("f2_1", 11)
+f2_2 = File("f2_2", 100)
+d2.add(f2_0)
+d2.add(f2_1)
+d2.add(f2_2)
+d0.add(d2)
 
-dir_0.add(dir_1)
-# dir_0.display()
+d1.display()
+print(d1.get_size())
 
-dir_0.display()
-print(dir_1.get_size())
+# dir0, dir1, dir2
+## dir0 f0_0 (10) f_0_1 (20)
+## dir1
+## dir2 f2_0(99) f2_1(11) f2_2 (100)
