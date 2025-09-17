@@ -3,8 +3,8 @@ from engine import Engine, Game_Status
 from database import Database
 
 def take_target_word_input():
-    target_word = input("Please input the target word of length 6: ")
-    if len(target_word) == 6:
+    target_word = input("Please input the target word: ")
+    if len(target_word) > 0:
         return target_word
     else:
         print("Invalid Input")
@@ -26,38 +26,38 @@ def start_round(db: Database, eng: Engine, body_maker: Body_Maker):
     else:
         guess_status, guessed_word = eng.perform_check(db.target_word, input_letter, db.guessed_word)
         if guess_status == False:
-            print("Wrong Letter")
-            db.update_guess_remains()
+            print("Wrong Guess")
+            db.update_guess_amount()
             if eng.determine_game_status(db) == Game_Status.GAME_OVER:
                 print(db.guessed_word)
                 print("Game Over")
                 return
             elif eng.determine_game_status(db) == Game_Status.CONTINUE:
-                body_maker.display(*eng.determine_body_status(db.guess_remains))
+                body_maker.draw_body(db.guess_amount)
                 print(db.guessed_word)
                 start_round(db, eng, body_maker)
         else:
             db.update_guessed_word(guessed_word)
             if eng.determine_game_status(db) == Game_Status.GAME_WON:
-                body_maker.display(*eng.determine_body_status(db.guess_remains))
+                body_maker.draw_body(db.guess_amount)
                 print(db.guessed_word)
                 print("Congratulations You Won")
                 return
             elif eng.determine_game_status(db) == Game_Status.CONTINUE:
                 print("You Guessed Right")
-                body_maker.display(*eng.determine_body_status(db.guess_remains))
+                body_maker.draw_body(db.guess_amount)
                 print(db.guessed_word)
 
             start_round(db, eng, body_maker)
 
 def main():
     target_word = take_target_word_input()
-    db = Database(target_word)
+    db = Database(target_word, 6)
     eng = Engine()
     body_maker = Body_Maker()
     print("================ Game Started =================")
 
-    body_maker.display(*eng.determine_body_status(db.guess_remains))
+    body_maker.draw_body(db.guess_amount)
     start_round(db, eng, body_maker)
 
 main()

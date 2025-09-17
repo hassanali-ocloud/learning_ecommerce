@@ -8,7 +8,7 @@ def binary(num: int):
         i *= 10
     return val
 
-def main():
-    print(binary(10.00))
+def main():    
+    print(binary(10))
 
 main()

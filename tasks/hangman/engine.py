@@ -16,22 +16,6 @@ class Engine():
         word_list = "".join(word_list)
         return word_list
 
-    def determine_body_status(self, guess_remains: int):
-        if guess_remains == 6:
-            return True, True, True, True, True, True
-        elif guess_remains == 5:
-            return True, True, True, True, True, False
-        elif guess_remains == 4:
-            return True, True, True, True, False, False
-        elif guess_remains == 3:
-            return True, True, True, False, False, False
-        elif guess_remains == 2:
-            return True, True, False, False, False, False
-        elif guess_remains == 1:
-            return True, False, False, False, False, False
-        elif guess_remains == 0:
-            return False, False, False, False, False, False
-
     def perform_check(self, target_word: str, input_letter: str, guessed_word: str):
         lower_target_word = target_word.lower()
         lower_input_letter = input_letter.lower()
@@ -46,20 +30,20 @@ class Engine():
             else:
                 index = lower_target_word.find(lower_input_letter)
                 exact_index = lower_target_word.find(lower_input_letter, index + (guessed_word_count))
-                guessed_word = self.__change_index(guessed_word, exact_index, target_word[index])
+                guessed_word = self.__change_index(guessed_word, exact_index, target_word[exact_index])
                 return True, guessed_word
 
     def determine_game_status(self, db: Database):
-        if db.guess_remains <= 0:
+        if db.guess_amount >= db.total_guess:
             return Game_Status.GAME_OVER
         elif db.target_word == db.guessed_word:
             return Game_Status.GAME_WON
         else:
             return Game_Status.CONTINUE
 
-def main():
-    eng = Engine()
+# def main():
+#     eng = Engine()
     
-    print(eng.perform_check("Hellow", "H", "H_____"))
+#     print(eng.perform_check("Hellow", "H", "H_____"))
 
-main()
+# main()
