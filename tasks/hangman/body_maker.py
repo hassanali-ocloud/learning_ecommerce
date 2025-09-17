@@ -2,7 +2,7 @@ class Body_Maker():
     def __init__(self):
         pass
 
-    def __get_indent_str(indent:int):
+    def __get_indent_str(self, indent:int):
         str = ""
         for x in range(indent):
             str += " "

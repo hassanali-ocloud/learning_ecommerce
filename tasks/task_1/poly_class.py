@@ -28,35 +28,25 @@ class IFileSystem(metaclass=ABCMeta):
 class Directory(IFileSystem):
     def __init__(self, name):
         self._name = name
-        self.dirs: list[Directory] = []
-        self.files: list[File] = []
+        self.components: list[IFileSystem] = []
 
     @property
     def name(self):
         return self._name
 
     def add(self, obj):
-        if type(obj) == File:
-            self.files.append(obj)
-        elif type(obj) == Directory:
-            self.dirs.append(obj)
+        self.components.append(obj)
 
-    def display(self, level: int = 0, is_root: bool = True):      
-        if is_root:
-            print(f"{IFileSystem.get_indent_str(level)}@ {self.name}")
+    def display(self, level: int = 0):      
+        print(f"{IFileSystem.get_indent_str(level)}@ {self.name}")
 
-        for file in self.files:
-            file.display(level)
-        for dir in self.dirs:
-            print(f"{IFileSystem.get_indent_str(level)}@ {dir.name}")
-            dir.display(level+2, False)
+        for component in self.components:
+            component.display(level+2)
 
     def get_size(self):
         total_size: int = 0
-        for file in self.files:
-            total_size += file.get_size()
-        for dir in self.dirs:
-            total_size += dir.get_size()
+        for component in self.components:
+            total_size += component.get_size()
         return total_size
 
 class File(IFileSystem):

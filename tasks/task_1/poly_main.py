@@ -19,8 +19,12 @@ d2.add(f2_1)
 d2.add(f2_2)
 d0.add(d2)
 
-d1.display()
-print(d1.get_size())
+d2_0 = Directory("d2_0")
+d2.add(d2_0)
+# d2_0.add(f2_0)
+
+d0.display()
+print(d0.get_size())
 
 # dir0, dir1, dir2
 ## dir0 f0_0 (10) f_0_1 (20)

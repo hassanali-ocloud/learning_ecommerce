@@ -1,9 +1,21 @@
 def find_2_max(a, b, c):
-    values = [a, b, c]
-    values.sort(reverse=True)
-    return values[0], values[1]
+    if a > b and a > c:
+        if b > c:
+            return a, b
+        else:
+            return a, c
+    elif b > c and b > a:
+        if c > a:
+            return b, c
+        else:
+            return b, a
+    elif c > a and c > b:
+        if a > b:
+            return c, a
+        else:
+            return c, b
 
 def main():
-    print(find_2_max(a=4, b=2, c=8))
+    print(find_2_max(a=7, b=1, c=4))
 
 main()
