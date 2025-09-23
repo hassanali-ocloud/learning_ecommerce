@@ -15,5 +15,3 @@
 
 # 2. Hotkeys
 - ctrl+/ -> multiple lines comment/uncomment
-
-15:57 -> Joins
