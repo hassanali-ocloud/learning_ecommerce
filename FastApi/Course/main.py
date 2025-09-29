@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-import models
+from . import models
 from database import engine
 from routers import auth, todos, users, address
 from company import companyapis, dependencies
