@@ -1,1 +1,1 @@
-web: uvicorn FastApi.Course.main:app --host=0.0.0.0 --port=${PORT: -5000}
+web: uvicorn FastApi.Course.main:app --host=0.0.0.0 --port=${PORT:-5000}
