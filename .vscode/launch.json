@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "uvicorn",
             "args": [
-            "auth:app",
+            "main:app",
             "--reload"
             ],
             "cwd": "${workspaceFolder}/FastApi/Course/todo/",
